@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+setup.py
+pyconf/__init__.py
+pyconf.egg-info/PKG-INFO
+pyconf.egg-info/SOURCES.txt
+pyconf.egg-info/dependency_links.txt
+pyconf.egg-info/requires.txt
+pyconf.egg-info/top_level.txt

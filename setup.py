@@ -7,8 +7,6 @@ os.system('rm dist/* && rmdir build/*')
 ver = open('ver.txt', 'r').read()
 ver = ver.split('.')
 ver.reverse()
-print(int(ver[0]) >= 10)
-print(int(ver[1]) >= 10)
 ver[0] = str(int(ver[0]) + 1)
 if int(ver[0]) >= 10:
   ver[0] = str(0)
@@ -17,19 +15,18 @@ if int(ver[1]) >= 10:
   ver[1] = str(0)
   ver[2] = str(int(ver[2]) + 1)
 ver.reverse()
-open('ultiutils/ver.txt', 'w').write(f'{".".join(ver)}')
 # Get the  current path
 HERE = pathlib.Path(__file__).parent
 # The text of the README file
 README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
-    name="pyconf",
+    name="pythconf",
     version=f'{".".join(ver)}',
-    description="utilites module to make coding in python just wayyy faster",
+    description="config file creator",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/maverick-dev-55/Ultiutils",
+    url="https://github.com/maverick-dev-55/py.config",
     author="toxikdevswastaken",
     author_email="pypi@toxik.cf",
     license="MIT",
@@ -38,9 +35,9 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
-    packages=["pyconf"],
+    packages=["pythconf"],
     include_package_data=True,
-    install_requires=["requests"],
+    install_requires=["pathlib"],
 )
 os.system('twine check dist/* > check.txt')
 check = open('check.txt', 'r').read()

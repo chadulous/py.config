@@ -1,4 +1,3 @@
-import ast
 import os
 from pathlib import Path
 class Error(Exception):
@@ -31,8 +30,9 @@ class config:
           self.dat[line[0]] = None
     self.convert()
   def add(self, key, defaultval=None):
-    self.dat[key] = defaultval
-    self.convert()
+    if key not in self.dat:
+      self.dat[key] = defaultval
+      self.convert()
   def convert(self):
     open(f'/{self.path}', 'w').write(f'')
     file = open(f'/{self.path}', 'a')
